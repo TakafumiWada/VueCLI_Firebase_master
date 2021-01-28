@@ -1,25 +1,12 @@
-# vuecli_firebase_master
+# 実装機能
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# VueCLI_Firebase_master
+- SCSS
+- branch管理
+- firebase連携
+  - CRUD
+  - deploy
+  - admin
+  - CI/CD
+- Vuex
+- router
+  - beforeEach
