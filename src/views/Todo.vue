@@ -3,10 +3,10 @@
     <h1>Todoリスト</h1>
     <div class="input-field">
       <input type="text" v-model="inputText" />
-      <button v-on:click="addTodo">追加</button>
+      <button v-on:click="addButton">追加</button>
     </div>
     <div class="todo-container">
-      <div v-for="todo in todos" v-bind:key="'todo' + todo.id">
+      <div v-for="todo in getTodos" v-bind:key="'todo' + todo.id">
         <input type="checkbox" v-model="todo.isdone" />
         <span>{{ todo.title }}</span>
       </div>
@@ -15,17 +15,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "Todo",
   data() {
     return {
-      inputText: "",
-      todos: []
+      inputText: ""
     };
   },
+  computed: {
+    ...mapGetters(["getTodos"])
+  },
   methods: {
-    addTodo() {
-      this.todos.push({ title: this.inputText, isdone: false });
+    ...mapActions(["addTodo"]),
+    addButton() {
+      this.addTodo(this.inputText);
       this.inputText = "";
     }
   }
