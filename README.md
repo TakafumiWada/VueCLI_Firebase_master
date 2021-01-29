@@ -10,3 +10,5 @@
 - Vuex
 - router
   - beforeEach
+- mixin利用
+- axios利用
