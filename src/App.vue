@@ -7,6 +7,19 @@
   <router-view />
 </template>
 
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  created() {
+    this.fetchTodos();
+  },
+  methods: {
+    ...mapActions(["fetchTodos"]),
+  },
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

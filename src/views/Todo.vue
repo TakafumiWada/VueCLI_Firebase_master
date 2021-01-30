@@ -6,9 +6,10 @@
       <button v-on:click="addButton">追加</button>
     </div>
     <div class="todo-container">
-      <div v-for="todo in getTodos" v-bind:key="'todo' + todo.id">
+      <div v-for="todo in getTodos" v-bind:key="todo.id">
         <input type="checkbox" v-model="todo.isdone" />
         <span>{{ todo.title }}</span>
+        <button v-on:click="deleteButton(todo.id)">削除</button>
       </div>
     </div>
   </div>
@@ -21,19 +22,22 @@ export default {
   name: "Todo",
   data() {
     return {
-      inputText: ""
+      inputText: "",
     };
   },
   computed: {
-    ...mapGetters(["getTodos"])
+    ...mapGetters(["getTodos"]),
   },
   methods: {
-    ...mapActions(["addTodo"]),
+    ...mapActions(["addTodo", "deleteTodo"]),
     addButton() {
       this.addTodo(this.inputText);
       this.inputText = "";
-    }
-  }
+    },
+    deleteButton(id) {
+      this.deleteTodo(id);
+    },
+  },
 };
 </script>
 
