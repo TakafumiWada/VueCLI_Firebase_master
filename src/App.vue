@@ -1,10 +1,24 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link>|
+    <router-link to="/todo">Todo</router-link>
   </div>
   <router-view />
 </template>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  created() {
+    this.fetchTodos();
+  },
+  methods: {
+    ...mapActions(["fetchTodos"]),
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
