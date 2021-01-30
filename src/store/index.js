@@ -16,6 +16,9 @@ export default createStore({
     deleteTodo(state, payload) {
       state.todos = state.todos.filter((todo) => todo.id !== payload);
     },
+    updateTodo(state, { id, todo }) {
+      state.todos.filter((todo) => todo.id == id)[0].title = todo;
+    },
   },
   actions: {
     addTodo({ commit }, payload) {
@@ -36,6 +39,16 @@ export default createStore({
         .then(() => {
           commit("deleteTodo", id);
         });
+    },
+    updateTodo({ commit }, { id, todo }) {
+      console.log(todo);
+
+      firebase
+        .firestore()
+        .collection("users/1/todos")
+        .doc(id)
+        .update({ id: id, title: todo, isdone: false })
+        .then(() => commit("updateTodo", { id: id, todo: todo }));
     },
     fetchTodos({ commit }) {
       firebase
