@@ -1,6 +1,6 @@
 <template>
   <div id="todo-section">
-    <h1>Todoリスト！！</h1>
+    <h1>Todoリスト！！！</h1>
     <div class="input-field">
       <input type="text" v-model="inputText" />
       <button v-on:click="addButton">追加</button>
