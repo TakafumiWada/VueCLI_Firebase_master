@@ -14,4 +14,4 @@ jobs:
       - name: Build
         run: yarn run build
       - name: Deploy to Firebase
-        run: yarn deploy --token=${{1//0etptE6aFyAqYCgYIARAAGA4SNwF-L9IrQq7wPLrj2Y3JHGQNnkvKszBRE1ZB5tuI9d2U9aHm3-7vK9RVBpN2fx9pFbviRzmtyrQ}}
+        run: yarn deploy --token=$1//0etptE6aFyAqYCgYIARAAGA4SNwF-L9IrQq7wPLrj2Y3JHGQNnkvKszBRE1ZB5tuI9d2U9aHm3-7vK9RVBpN2fx9pFbviRzmtyrQ
