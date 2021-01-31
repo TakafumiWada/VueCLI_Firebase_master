@@ -6,7 +6,7 @@
   - CRUD done
   - deploy done
   - admin
-  - CI/CD doing
+  - CI/CD doing2
 - Vuex done
 - router
   - beforeEach
