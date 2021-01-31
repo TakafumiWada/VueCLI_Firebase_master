@@ -3,10 +3,10 @@
 - SCSS
 - branch管理
 - firebase連携
-  - CRUD
-  - deploy
+  - CRUD done
+  - deploy done
   - admin
-  - CI/CD
-- Vuex
+  - CI/CD doing
+- Vuex done
 - router
   - beforeEach
