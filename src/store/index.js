@@ -4,6 +4,7 @@ import firebase from "firebase";
 export default createStore({
   state: {
     todos: [],
+    userAuth: false,
   },
   mutations: {
     addTodo(state, payload) {
@@ -18,6 +19,9 @@ export default createStore({
     },
     updateTodo(state, { id, todo }) {
       state.todos.filter((todo) => todo.id == id)[0].title = todo;
+    },
+    loginUser(state) {
+      state.userAuth = !state.userAuth;
     },
   },
   actions: {
@@ -65,11 +69,17 @@ export default createStore({
           });
         });
     },
+    loginUser({ commit }) {
+      commit("loginUser");
+    },
   },
   modules: {},
   getters: {
     getTodos(state) {
       return state.todos;
+    },
+    checkUser(state) {
+      return state.userAuth;
     },
   },
 });

@@ -1,12 +1,15 @@
 # 実装機能
 
+以下の機能を実装しています
+
+- VueCLI 基礎
 - SCSS
-- branch管理
-- firebase連携
-  - CRUD done
-  - deploy done
+- branch
+- firebase
+  - CRUD
+  - deploy
   - admin
-  - CI/CD doing4
-- Vuex done
+  - CI/CD
+- Vuex
 - router
   - beforeEach
