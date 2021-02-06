@@ -4,6 +4,7 @@ import firebase from "firebase";
 export default createStore({
   state: {
     todos: [],
+    userAuth: false,
   },
   mutations: {
     addTodo(state, payload) {
@@ -18,6 +19,12 @@ export default createStore({
     },
     updateTodo(state, { id, todo }) {
       state.todos.filter((todo) => todo.id == id)[0].title = todo;
+    },
+    setUser(state) {
+      state.userAuth = true;
+    },
+    logoutUser(state) {
+      state.userAuth = false;
     },
   },
   actions: {
@@ -65,11 +72,25 @@ export default createStore({
           });
         });
     },
+    loginUser() {
+      const google_auth_provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithRedirect(google_auth_provider);
+    },
+    logoutUser({ commit }) {
+      firebase.auth().signOut();
+      commit("logoutUser");
+    },
+    setUser({ commit }) {
+      commit("setUser");
+    },
   },
   modules: {},
   getters: {
     getTodos(state) {
       return state.todos;
+    },
+    checkUser(state) {
+      return state.userAuth;
     },
   },
 });
