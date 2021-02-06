@@ -6,18 +6,18 @@
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
-  mounted() {
+  created() {
     this.userAuthAdmin();
   },
   methods: {
     ...mapActions(["loginUser"]),
     loginButton: function() {
       this.loginUser();
-      //location.reload();
-      this.userAuthAdmin();
     },
     userAuthAdmin: function() {
+      console.log(this.$store.getters.checkUser);
       if (this.$store.getters.checkUser) {
         this.$router.push("/admin");
       }

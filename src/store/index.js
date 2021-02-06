@@ -20,8 +20,11 @@ export default createStore({
     updateTodo(state, { id, todo }) {
       state.todos.filter((todo) => todo.id == id)[0].title = todo;
     },
-    loginUser(state) {
-      state.userAuth = !state.userAuth;
+    setUser(state) {
+      state.userAuth = true;
+    },
+    logoutUser(state) {
+      state.userAuth = false;
     },
   },
   actions: {
@@ -69,8 +72,16 @@ export default createStore({
           });
         });
     },
-    loginUser({ commit }) {
-      commit("loginUser");
+    loginUser() {
+      const google_auth_provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithRedirect(google_auth_provider);
+    },
+    logoutUser({ commit }) {
+      firebase.auth().signOut();
+      commit("logoutUser");
+    },
+    setUser({ commit }) {
+      commit("setUser");
     },
   },
   modules: {},
